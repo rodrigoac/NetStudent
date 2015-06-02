@@ -243,7 +243,7 @@
         //Ainda falta testar os erros que podem acontecer durante uma consulta!
         /*
             Falta de Conexao com Internet!
-            NetStudent inacessível!
+            NetStudent inacessÃ­vel!
             Usuario ou Senha Incorreta(De acordo com retorno do NetStudent)
             
         */				
@@ -252,8 +252,8 @@
 			
 			ExibeLoading();
 			
-			//$.getJSON("http://www.aisiz.org/webservice/netstudent/NetStudent.php?matricula="+matricula+"&senha="+senha,
-			$.getJSON("http://localhost/app/NetStudent/json_falso.php",
+			$.getJSON("http://www.aisiz.org/webservice/netstudent/NetStudent.php?matricula="+matricula+"&senha="+senha,
+			//$.getJSON("http://localhost/app/NetStudent/json_falso.php",
 			function(data, status, xhr){
 				if(status == 'success'){
 					var html = '';
@@ -269,18 +269,18 @@
 							+'<h3>'+item.disciplina+'</h3><ul data-role="listview" data-theme="c">'
 							+'<li data-theme="b">Situa&ccedil;&atilde;o</li>'
 							+'<li>'+item.status+'</li>'
-							+'<li data-theme="b">1° AV (1° Avalia&ccedil;&atilde;o) [N/C](Nota ou Conceito)</li>'
-							+'<li>'+item._1av_nc+'</li><li data-theme="b">1° AV (1° Avalia&ccedil;&atilde;o) [AD] (Aulas Dadas)</li>'
-							+'<li>'+item._1av_ad+'</li><li data-theme="b">1° AV (1° Avalia&ccedil;&atilde;o) [F] (Faltas)</li>'
-							+'<li>'+item._1av_f+'</li><li data-theme="b">2° AV (2° Avalia&ccedil;&atilde;o) [N/C](Nota ou Conceito)</li>'
-							+'<li>'+item._2av_nc+'</li><li data-theme="b">2° AV (2° Avalia&ccedil;&atilde;o) [AD] (Aulas Dadas)</li>'
-							+'<li>'+item._2av_ad+'</li><li data-theme="b">2° AV (2° Avalia&ccedil;&atilde;o) [F] (Faltas)</li>'
-							+'<li>'+item._2av_f+'</li><li data-theme="b">2CH1A (2° Chamada 1° Avalia&ccedil;&atilde;o) [N/C](Nota ou Conceito)</li>'
-							+'<li>'+item._2ch1a_nc+'</li><li data-theme="b">2CH1A (2° Chamada 1° Avalia&ccedil;&atilde;o) [AD] (Aulas Dadas)</li>'
-							+'<li>'+item._2ch1a_ad+'</li><li data-theme="b">2CH1A (2° Chamada 1° Avalia&ccedil;&atilde;o) [F] (Faltas)</li>'
-							+'<li>'+item._2ch1a_f+'</li><li data-theme="b">2CH2A (2° Chamada 2° Avalia&ccedil;&atilde;o) [N/C](Nota ou Conceito)</li>'
-							+'<li>'+item._2ch2a_nc+'</li><li data-theme="b">2CH2A (2° Chamada 2° Avalia&ccedil;&atilde;o) [AD] (Aulas Dadas)</li>'
-							+'<li>'+item._2ch2a_ad+'</li><li data-theme="b">2CH2A (2° Chamada 2° Avalia&ccedil;&atilde;o) [F] (Faltas)</li>'
+							+'<li data-theme="b">1Â° AV (1Â° Avalia&ccedil;&atilde;o) [N/C](Nota ou Conceito)</li>'
+							+'<li>'+item._1av_nc+'</li><li data-theme="b">1Â° AV (1Â° Avalia&ccedil;&atilde;o) [AD] (Aulas Dadas)</li>'
+							+'<li>'+item._1av_ad+'</li><li data-theme="b">1Â° AV (1Â° Avalia&ccedil;&atilde;o) [F] (Faltas)</li>'
+							+'<li>'+item._1av_f+'</li><li data-theme="b">2Â° AV (2Â° Avalia&ccedil;&atilde;o) [N/C](Nota ou Conceito)</li>'
+							+'<li>'+item._2av_nc+'</li><li data-theme="b">2Â° AV (2Â° Avalia&ccedil;&atilde;o) [AD] (Aulas Dadas)</li>'
+							+'<li>'+item._2av_ad+'</li><li data-theme="b">2Â° AV (2Â° Avalia&ccedil;&atilde;o) [F] (Faltas)</li>'
+							+'<li>'+item._2av_f+'</li><li data-theme="b">2CH1A (2Â° Chamada 1Â° Avalia&ccedil;&atilde;o) [N/C](Nota ou Conceito)</li>'
+							+'<li>'+item._2ch1a_nc+'</li><li data-theme="b">2CH1A (2Â° Chamada 1Â° Avalia&ccedil;&atilde;o) [AD] (Aulas Dadas)</li>'
+							+'<li>'+item._2ch1a_ad+'</li><li data-theme="b">2CH1A (2Â° Chamada 1Â° Avalia&ccedil;&atilde;o) [F] (Faltas)</li>'
+							+'<li>'+item._2ch1a_f+'</li><li data-theme="b">2CH2A (2Â° Chamada 2Â° Avalia&ccedil;&atilde;o) [N/C](Nota ou Conceito)</li>'
+							+'<li>'+item._2ch2a_nc+'</li><li data-theme="b">2CH2A (2Â° Chamada 2Â° Avalia&ccedil;&atilde;o) [AD] (Aulas Dadas)</li>'
+							+'<li>'+item._2ch2a_ad+'</li><li data-theme="b">2CH2A (2Â° Chamada 2Â° Avalia&ccedil;&atilde;o) [F] (Faltas)</li>'
 							+'<li>'+item._2ch2a_f+'</li><li data-theme="b">MS (M&eacute;dia Semestral) [N/C](Nota ou Conceito)</li>'
 							+'<li>'+item.ms_nc+'</li><li data-theme="b">MS (M&eacute;dia Semestral) [AD] (Aulas Dadas)</li>'
 							+'<li>'+item.ms_ad+'</li><li data-theme="b">MS (M&eacute;dia Semestral) [F] (Faltas)</li>'
@@ -408,13 +408,13 @@
 			<center>
             Este App tem como objetivo facilitar o acesso dos alunos ao extrato de suas notas no sistema NetStudent
             utilizado pela Facimp.<br />
-            Como o sistema(NetStudent) nao possui uma interface muito amigável para ser acessada pelos dispositivos móveis, surgiu
-            a necessidade da criação deste aplicativo.<br />
-            Só é necessário que seja informado sua matricula e sua senha, não gravamos nada em servidores, os dados salvos <br />
-            e consultados por você somente estaram salvos no seu proprio aparelho.<br />
-            Um exemplo do funcionamento é demonstrado através da figura abaixo:
+            Como o sistema(NetStudent) nao possui uma interface muito amigÃ¡vel para ser acessada pelos dispositivos mÃ³veis, surgiu
+            a necessidade da criaÃ§Ã£o deste aplicativo.<br />
+            SÃ³ Ã© necessÃ¡rio que seja informado sua matricula e sua senha, nÃ£o gravamos nada em servidores, os dados salvos <br />
+            e consultados por vocÃª somente estaram salvos no seu proprio aparelho.<br />
+            Um exemplo do funcionamento Ã© demonstrado atravÃ©s da figura abaixo:
             <br />
-            O App só serve de camada de intermediação entre o sistema e você aluno, para que tenha mais facilidade em sua consulta.
+            O App sÃ³ serve de camada de intermediaÃ§Ã£o entre o sistema e vocÃª aluno, para que tenha mais facilidade em sua consulta.
             </center>
 		</div>		
 	</div>  
