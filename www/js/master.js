@@ -89,9 +89,10 @@
 			var html = '';
 			//Preenche a Lista com os Cadastros armazenados!			
 			for(index = 0; index < cadastros.length; index++) {
-				html += '<div class="ui-btn-text">Matricula: '+cadastros[index].matricula+			
-						'<a href="#" data-role="button" data-inline="true" data-icon="search" data-iconpos="right" data-theme="b" onclick="PegaExtrato('+cadastros[index].matricula+','+cadastros[index].senha+');" rel="external">Consultar</a>'+
-						'<a href="#" data-role="button" data-inline="true" data-icon="delete" data-iconpos="right" data-theme="b" onclick="ExcluirCad('+cadastros[index].matricula+');" rel="external">Excluir</a>'+																 
+				html += '<div class="ui-btn-text">Matricula: '+cadastros[index].matricula+'&nbsp;&nbsp;'+				
+						'<a id="search" data-role="button" data-inline="true" data-iconpos="notext" data-icon="search" data-iconpos="right" data-theme="b" onclick="PegaExtrato('+cadastros[index].matricula+','+cadastros[index].senha+');" rel="external">Consultar</a>'+
+						'<a data-role="button" data-inline="true" data-iconpos="notext" data-icon="delete" data-iconpos="right" data-theme="b" onclick="ExcluirCad('+cadastros[index].matricula+');" rel="external">Excluir</a>'+																 
+						//'<a href="#popupMenu" id="popupDefault" data-rel="popup" data-role="button" data-inline="true" data-transition="pop" data-icon="gear" data-theme="b" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" aria-haspopup="true" aria-owns="#popupMenu"><span class="ui-btn-text">Op&ccedil;&otilde;es</span></a>'+	
 						'</div>';
 			}
 			UpdateQtdeItems();
@@ -113,9 +114,10 @@
 			items = cadastros.length;
 			//Preenche a Lista com os Cadastros armazenados!			
 			for(index = 0; index < cadastros.length; index++) {
-			html += '<div class="ui-btn-text">Matricula: '+cadastros[index].matricula+				
-					'<a href="#" data-role="button" data-inline="true" data-icon="search" data-iconpos="right" data-theme="b" onclick="PegaExtrato('+cadastros[index].matricula+','+cadastros[index].senha+');" rel="external">Consultar</a>'+
-					'<a href="#" data-role="button" data-inline="true" data-icon="delete" data-iconpos="right" data-theme="b" onclick="ExcluirCad('+cadastros[index].matricula+');" rel="external">Excluir</a>'+																 
+				html += '<div class="ui-btn-text">Matricula: '+cadastros[index].matricula+'&nbsp;&nbsp;'+				
+					'<a id="search" data-role="button" data-inline="true" data-iconpos="notext" data-icon="search" data-iconpos="right" data-theme="b" onclick="PegaExtrato('+cadastros[index].matricula+','+cadastros[index].senha+');" rel="external">Consultar</a>'+
+					'<a data-role="button" data-inline="true" data-iconpos="notext" data-icon="delete" data-iconpos="right" data-theme="b" onclick="ExcluirCad('+cadastros[index].matricula+');" rel="external">Excluir</a>'+																 
+					//'<a href="#popupMenu" id="popupDefault" data-rel="popup" data-role="button" data-inline="true" data-transition="pop" data-icon="gear" data-theme="b" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" aria-haspopup="true" aria-owns="#popupMenu"><span class="ui-btn-text">Op&ccedil;&otilde;es</span></a>'+	
 					'</div>';
 			}
 		}
