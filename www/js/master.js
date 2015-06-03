@@ -323,11 +323,11 @@
 		console.log('escondeu loading');
 	}
 	
-	/*
+	
 	function FecharApp(){
 		navigator.app.exitApp();
 	}
-	
+	/*
 	document.addEventListener("backbutton", function () { 
          navigator.notification.confirm(
              'Deseja Sair?', 
@@ -344,7 +344,7 @@
         }
     }
 	*/
-	
+	/*
 	document.addEventListener('deviceready', function(e,d){
 		//alert('PG Ready');
 		$('#btnExit').click(function() {
@@ -353,7 +353,7 @@
 			return true;
 		});
 	}, false);
-	/*	
+		
 	$(document).ready(function() {
 		alert('JQ Ready');
 	});
