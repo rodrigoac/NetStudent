@@ -8,7 +8,6 @@
 		window.localStorage.setItem('JSON_Cad', JSON.stringify(cadastros));
 	}
 		
-	//Esta ok
 	function AddStorage(mat,senha){			
 		var cadastros = window.localStorage.getItem('JSON_Cad');
 		var object = {matricula: mat, senha: senha};
@@ -26,7 +25,6 @@
 		}		
 	}
 		
-	//Esta ok
 	function GetStorage(){
 		if(localStorage.getItem('JSON_Cad') && localStorage.getItem('JSON_Cad') !== '') {
 			var cadastros = JSON.parse(window.localStorage.getItem('JSON_Cad'));
@@ -36,10 +34,7 @@
 		}else{
 			console.log('Storage Vazio');
 			return false;
-		}
-		
-		//console.log(cadastros);
-		//return cadastros;
+		}		
 	}
 		
 	function ClrStorage(){
@@ -173,10 +168,7 @@
 				items = cadastros.length;
 			}
 			
-			var check = $('#chkSave').is(':checked');
-			//console.log(check); //true/false
-			//Se checkbox estiver marcado entao salva no banco de dados!
-			//console.log(check);
+			var check = $('#chkSave').is(':checked');			
 			
 			if((matricula != '') && (senha != '')){
 				if(check){									
@@ -246,51 +238,71 @@
 		$.getJSON("http://www.aisiz.org/webservice/netstudent/NetStudent.php?matricula="+matricula+"&senha="+senha,
 		//$.getJSON("http://localhost/app/NetStudent/json_falso.php",
 		function(data, status, xhr){
-			if(status == 'success'){
-				var html = '';
-				//var json = ["RODRIGO",[{"disciplina":"COMPUTA\u00c7AO MOVEL","status":"CRS","_1av_nc":"10","_1av_ad":"36","_1av_f":"2","_2av_nc":"--","_2av_ad":"0","_2av_f":"0","_2ch1a_nc":"--","_2ch1a_ad":"--","_2ch1a_f":"--","_2ch2a_nc":"--","_2ch2a_ad":"--","_2ch2a_f":"--","ms_nc":"--","ms_ad":"--","ms_f":"--","pf_nc":"--","pf_ad":"--","pf_f":"--","mf_nc":"0","mf_ad":"--","mf_f":"--","tot_ad":"36","tot_f":"2","tot_porc":"5,56"},{"disciplina":"ESTAGIO SUPERVISIONADO I","status":"CRS","_1av_nc":"--","_1av_ad":"112","_1av_f":"0","_2av_nc":"--","_2av_ad":"0","_2av_f":"0","_2ch1a_nc":"--","_2ch1a_ad":"--","_2ch1a_f":"--","_2ch2a_nc":"--","_2ch2a_ad":"--","_2ch2a_f":"--","ms_nc":"--","ms_ad":"--","ms_f":"--","pf_nc":"--","pf_ad":"--","pf_f":"--","mf_nc":"0","mf_ad":"--","mf_f":"--","tot_ad":"112","tot_f":"0","tot_porc":"0,00"},{"disciplina":"ESTAGIO SUPERVISIONADO II","status":"CRS","_1av_nc":"--","_1av_ad":"108","_1av_f":"0","_2av_nc":"--","_2av_ad":"0","_2av_f":"0","_2ch1a_nc":"--","_2ch1a_ad":"--","_2ch1a_f":"--","_2ch2a_nc":"--","_2ch2a_ad":"--","_2ch2a_f":"--","ms_nc":"--","ms_ad":"--","ms_f":"--","pf_nc":"--","pf_ad":"--","pf_f":"--","mf_nc":"0","mf_ad":"--","mf_f":"--","tot_ad":"108","tot_f":"0","tot_porc":"0,00"},{"disciplina":"MONOGRAFIA","status":"CRS","_1av_nc":"8","_1av_ad":"20","_1av_f":"0","_2av_nc":"--","_2av_ad":"0","_2av_f":"0","_2ch1a_nc":"--","_2ch1a_ad":"--","_2ch1a_f":"--","_2ch2a_nc":"--","_2ch2a_ad":"--","_2ch2a_f":"--","ms_nc":"--","ms_ad":"--","ms_f":"--","pf_nc":"--","pf_ad":"--","pf_f":"--","mf_nc":"0","mf_ad":"--","mf_f":"--","tot_ad":"20","tot_f":"0","tot_porc":"0,00"},{"disciplina":"PROJETO DE INTERFACE DE SOFTWARE","status":"CRS","_1av_nc":"9,8","_1av_ad":"38","_1av_f":"4","_2av_nc":"--","_2av_ad":"4","_2av_f":"0","_2ch1a_nc":"--","_2ch1a_ad":"--","_2ch1a_f":"--","_2ch2a_nc":"--","_2ch2a_ad":"--","_2ch2a_f":"--","ms_nc":"--","ms_ad":"--","ms_f":"--","pf_nc":"--","pf_ad":"--","pf_f":"--","mf_nc":"0","mf_ad":"--","mf_f":"--","tot_ad":"42","tot_f":"4","tot_porc":"9,52"},{"disciplina":"SEGURAN\u00c7A E AUDITORIA DE SISTEMAS","status":"CRS","_1av_nc":"9","_1av_ad":"36","_1av_f":"0","_2av_nc":"--","_2av_ad":"2","_2av_f":"0","_2ch1a_nc":"--","_2ch1a_ad":"--","_2ch1a_f":"--","_2ch2a_nc":"--","_2ch2a_ad":"--","_2ch2a_f":"--","ms_nc":"--","ms_ad":"--","ms_f":"--","pf_nc":"--","pf_ad":"--","pf_f":"--","mf_nc":"0","mf_ad":"--","mf_f":"--","tot_ad":"38","tot_f":"0","tot_porc":"0,00"}]];
+			//if(status == 'success'){
+				var html = '';				
 				var json = data;
 				var html = '';
-				//sleep(5000);
-				$('#dvaluno').html('Aluno: '+json[0]);
-				console.log(data);
-				$.each(json[1], function (i, item) {
-					
-					html += '<li><div id="resultsContainer" data-role="collapsible" data-collapsed="true">'
-						+'<h3>'+item.disciplina+'</h3><ul data-role="listview" data-theme="c">'
-						+'<li data-theme="b">Situa&ccedil;&atilde;o</li>'
-						+'<li>'+item.status+'</li>'
-						+'<li data-theme="b">1° AV (1° Avalia&ccedil;&atilde;o) [N/C](Nota ou Conceito)</li>'
-						+'<li>'+item._1av_nc+'</li><li data-theme="b">1° AV (1° Avalia&ccedil;&atilde;o) [AD] (Aulas Dadas)</li>'
-						+'<li>'+item._1av_ad+'</li><li data-theme="b">1° AV (1° Avalia&ccedil;&atilde;o) [F] (Faltas)</li>'
-						+'<li>'+item._1av_f+'</li><li data-theme="b">2° AV (2° Avalia&ccedil;&atilde;o) [N/C](Nota ou Conceito)</li>'
-						+'<li>'+item._2av_nc+'</li><li data-theme="b">2° AV (2° Avalia&ccedil;&atilde;o) [AD] (Aulas Dadas)</li>'
-						+'<li>'+item._2av_ad+'</li><li data-theme="b">2° AV (2° Avalia&ccedil;&atilde;o) [F] (Faltas)</li>'
-						+'<li>'+item._2av_f+'</li><li data-theme="b">2CH1A (2° Chamada 1° Avalia&ccedil;&atilde;o) [N/C](Nota ou Conceito)</li>'
-						+'<li>'+item._2ch1a_nc+'</li><li data-theme="b">2CH1A (2° Chamada 1° Avalia&ccedil;&atilde;o) [AD] (Aulas Dadas)</li>'
-						+'<li>'+item._2ch1a_ad+'</li><li data-theme="b">2CH1A (2° Chamada 1° Avalia&ccedil;&atilde;o) [F] (Faltas)</li>'
-						+'<li>'+item._2ch1a_f+'</li><li data-theme="b">2CH2A (2° Chamada 2° Avalia&ccedil;&atilde;o) [N/C](Nota ou Conceito)</li>'
-						+'<li>'+item._2ch2a_nc+'</li><li data-theme="b">2CH2A (2° Chamada 2° Avalia&ccedil;&atilde;o) [AD] (Aulas Dadas)</li>'
-						+'<li>'+item._2ch2a_ad+'</li><li data-theme="b">2CH2A (2° Chamada 2° Avalia&ccedil;&atilde;o) [F] (Faltas)</li>'
-						+'<li>'+item._2ch2a_f+'</li><li data-theme="b">MS (M&eacute;dia Semestral) [N/C](Nota ou Conceito)</li>'
-						+'<li>'+item.ms_nc+'</li><li data-theme="b">MS (M&eacute;dia Semestral) [AD] (Aulas Dadas)</li>'
-						+'<li>'+item.ms_ad+'</li><li data-theme="b">MS (M&eacute;dia Semestral) [F] (Faltas)</li>'
-						+'<li>'+item.ms_f+'</li><li data-theme="b">PF (Prova Final) [N/C](Nota ou Conceito)</li>'
-						+'<li>'+item.pf_nc+'</li><li data-theme="b">PF (Prova Final) [AD] (Aulas Dadas)</li>'
-						+'<li>'+item.pf_ad+'</li><li data-theme="b">PF (Prova Final) [F] (Faltas)</li>'
-						+'<li>'+item.pf_f+'</li><li data-theme="b">MF (M&eacute;dia Final) [N/C](Nota ou Conceito)</li>'
-						+'<li>'+item.mf_nc+'</li><li data-theme="b">MF (M&eacute;dia Final) [AD] (Aulas Dadas)</li>'
-						+'<li>'+item.mf_ad+'</li><li data-theme="b">MF (M&eacute;dia Final) [F] (Faltas)</li>'
-						+'<li>'+item.mf_f+'</li><li data-theme="b">TOTAIS [AD](Aulas Dadas)</li>'
-						+'<li>'+item.tot_ad+'</li><li data-theme="b">TOTAIS [F] (Faltas)</li>'
-						+'<li>'+item.tot_f+'</li><li data-theme="b">TOTAIS [%] (Percentual de Faltas)</li>'
-						+'<li>'+item.tot_porc+'</li></ul></div></li>';											
-				});
+				HideLoading();
 				
-				$('#listView1').listview().listview('refresh');
-				//$('#listView1').empty().html(html).listview('refresh');
-				$('#listView1').empty().html(html).trigger('create');
-				console.log(html);
+				var count = Object.keys(data).length;
+				console.log('Json retornou vetor de '+count+' indices!');
+				
+				//Se o Json retornou so com um indice entao retornou com erro!
+				if(count === 1){
+					console.log('chamou pagina de erro');
+					$.mobile.changePage($("#error"),'pop');
+					//var json_parsed = JSON.parse(json);
+					
+					$.each(json, function (i, item) {
+						console.log('valor do json com erro: '+item);
+						//Exibe o erro ao usuario!
+						var aux = '<center>'+item+'</center>';
+						$('#errorContent').html(aux).trigger('create');
+					});
+				}else{
+					//sleep(5000);
+					$('#dvaluno').html('Aluno: '+json[0]);
+					console.log(data);
+					$.each(json[1], function (i, item) {
+						
+						html += '<li><div id="resultsContainer" data-role="collapsible" data-collapsed="true">'
+							+'<h3>'+item.disciplina+'</h3><ul data-role="listview" data-theme="c">'
+							+'<li data-theme="b">Situa&ccedil;&atilde;o</li>'
+							+'<li>'+item.status+'</li>'
+							+'<li data-theme="b">1° AV (1° Avalia&ccedil;&atilde;o) [N/C](Nota ou Conceito)</li>'
+							+'<li>'+item._1av_nc+'</li><li data-theme="b">1° AV (1° Avalia&ccedil;&atilde;o) [AD] (Aulas Dadas)</li>'
+							+'<li>'+item._1av_ad+'</li><li data-theme="b">1° AV (1° Avalia&ccedil;&atilde;o) [F] (Faltas)</li>'
+							+'<li>'+item._1av_f+'</li><li data-theme="b">2° AV (2° Avalia&ccedil;&atilde;o) [N/C](Nota ou Conceito)</li>'
+							+'<li>'+item._2av_nc+'</li><li data-theme="b">2° AV (2° Avalia&ccedil;&atilde;o) [AD] (Aulas Dadas)</li>'
+							+'<li>'+item._2av_ad+'</li><li data-theme="b">2° AV (2° Avalia&ccedil;&atilde;o) [F] (Faltas)</li>'
+							+'<li>'+item._2av_f+'</li><li data-theme="b">2CH1A (2° Chamada 1° Avalia&ccedil;&atilde;o) [N/C](Nota ou Conceito)</li>'
+							+'<li>'+item._2ch1a_nc+'</li><li data-theme="b">2CH1A (2° Chamada 1° Avalia&ccedil;&atilde;o) [AD] (Aulas Dadas)</li>'
+							+'<li>'+item._2ch1a_ad+'</li><li data-theme="b">2CH1A (2° Chamada 1° Avalia&ccedil;&atilde;o) [F] (Faltas)</li>'
+							+'<li>'+item._2ch1a_f+'</li><li data-theme="b">2CH2A (2° Chamada 2° Avalia&ccedil;&atilde;o) [N/C](Nota ou Conceito)</li>'
+							+'<li>'+item._2ch2a_nc+'</li><li data-theme="b">2CH2A (2° Chamada 2° Avalia&ccedil;&atilde;o) [AD] (Aulas Dadas)</li>'
+							+'<li>'+item._2ch2a_ad+'</li><li data-theme="b">2CH2A (2° Chamada 2° Avalia&ccedil;&atilde;o) [F] (Faltas)</li>'
+							+'<li>'+item._2ch2a_f+'</li><li data-theme="b">MS (M&eacute;dia Semestral) [N/C](Nota ou Conceito)</li>'
+							+'<li>'+item.ms_nc+'</li><li data-theme="b">MS (M&eacute;dia Semestral) [AD] (Aulas Dadas)</li>'
+							+'<li>'+item.ms_ad+'</li><li data-theme="b">MS (M&eacute;dia Semestral) [F] (Faltas)</li>'
+							+'<li>'+item.ms_f+'</li><li data-theme="b">PF (Prova Final) [N/C](Nota ou Conceito)</li>'
+							+'<li>'+item.pf_nc+'</li><li data-theme="b">PF (Prova Final) [AD] (Aulas Dadas)</li>'
+							+'<li>'+item.pf_ad+'</li><li data-theme="b">PF (Prova Final) [F] (Faltas)</li>'
+							+'<li>'+item.pf_f+'</li><li data-theme="b">MF (M&eacute;dia Final) [N/C](Nota ou Conceito)</li>'
+							+'<li>'+item.mf_nc+'</li><li data-theme="b">MF (M&eacute;dia Final) [AD] (Aulas Dadas)</li>'
+							+'<li>'+item.mf_ad+'</li><li data-theme="b">MF (M&eacute;dia Final) [F] (Faltas)</li>'
+							+'<li>'+item.mf_f+'</li><li data-theme="b">TOTAIS [AD](Aulas Dadas)</li>'
+							+'<li>'+item.tot_ad+'</li><li data-theme="b">TOTAIS [F] (Faltas)</li>'
+							+'<li>'+item.tot_f+'</li><li data-theme="b">TOTAIS [%] (Percentual de Faltas)</li>'
+							+'<li>'+item.tot_porc+'</li></ul></div></li>';											
+					});
+					
+					$('#listView1').listview().listview('refresh');
+					//$('#listView1').empty().html(html).listview('refresh');
+					$('#listView1').empty().html(html).trigger('create');
+					console.log(html);
+					$.mobile.changePage("#netstudent_extrato");
+				}
+			/*
 			}
 			else if(status == 'timeout'){
 				alert('Falhou ao conectar no NetStudent!');
@@ -298,13 +310,19 @@
 			else if (status == "error" || status == "parsererror" ){
 				alert('Aconteceu um Erro!');
 			}
-			
+			*/
 			console.log('data: '+data+' xhr: '+xhr+' status: '+status);
 			
-			HideLoading();			
-			$.mobile.changePage("#netstudent_extrato");
+						
+			
 		//fail(function(jqXHR, textStatus, errorThrown) { alert('getJSON request failed! ' + textStatus); console.log(textStatus+'/'+jqXHR+'-'+errorThrown); HideLoading(); })			
-		}).fail(function(jqXHR, textStatus, errorThrown) { alert('Falhou ao acessar NetStudent!'); console.log(textStatus+'/'+jqXHR+'-'+errorThrown); HideLoading(); })			
+		}).fail(function(jqXHR, textStatus, errorThrown) { 
+			//alert('Falhou ao acessar NetStudent!'); 
+			var aux = '<center>Falha de Conexao! Verifique sua Internet!</center>';
+			$('#errorContent').html(aux).trigger('create');
+			console.log(textStatus+'/'+jqXHR+'-'+errorThrown); 
+			HideLoading(); 
+		})			
 	}
 		
 	function ExibeLoading(){
