@@ -71,12 +71,11 @@
 		  <a href="#" data-icon="info" data-role="button" data-inline="true" onclick="ExibeInfo();">Sobre</a>
 		</div>
 	</div>       
-    	<div data-role="page" id="info"> 
+    <div data-role="page" id="info"> 
 		<div data-role="header" data-theme="b" data-position="fixed">
 			<a href="#" data-icon="home" data-iconpos="notext" data-role="button" data-inline="true" onclick="ExibeHome();">Inicio</a>
 			<h1>NetStudent Facimp</h1> 		
-		</div>
-		<span id="span1"></span>
+		</div>		
 		<h3><center>Informa&ccedil;&otilde;es</center></h3>
 		<div data-role="content" class="ui-content" role="main">
 			<center>
@@ -90,6 +89,18 @@
             O App só serve de camada de intermediação entre o sistema e você aluno, para que tenha mais facilidade em sua consulta.
             </center>
 		</div>		
-	</div>       
+	</div>   
+	<div data-role="page" id="error">
+		<div data-role="header" data-theme="b" data-position="fixed">
+			<a href="#" data-icon="home" data-iconpos="notext" data-role="button" data-inline="true" onclick="ExibeHome();">Inicio</a>
+			<h1>NetStudent Facimp</h1> 		
+		</div>
+		<h3><center>Ops! Aconteceu um Erro.</center></h3>
+		<div data-role="content" class="ui-content" role="main" id="errorContent">
+		</div>
+		<div data-role="footer" class="ui-bar" data-theme="b" data-position="fixed" data-id="footer">
+		  <a href="#" data-icon="info" data-role="button" data-inline="true" onclick="ExibeInfo();">Sobre</a>
+		</div>
+	</div>
 </body>
 </html>
