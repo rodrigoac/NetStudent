@@ -303,8 +303,8 @@
 			
 			HideLoading();			
 			$.mobile.changePage("#netstudent_extrato");
-		
-		}).fail(function(jqXHR, textStatus, errorThrown) { alert('getJSON request failed! ' + textStatus); console.log(textStatus+'/'+jqXHR+'-'+errorThrown); HideLoading(); })			
+		//fail(function(jqXHR, textStatus, errorThrown) { alert('getJSON request failed! ' + textStatus); console.log(textStatus+'/'+jqXHR+'-'+errorThrown); HideLoading(); })			
+		}).fail(function(jqXHR, textStatus, errorThrown) { alert('Falhou ao acessar NetStudent!'); console.log(textStatus+'/'+jqXHR+'-'+errorThrown); HideLoading(); })			
 	}
 		
 	function ExibeLoading(){
@@ -322,7 +322,39 @@
 		});
 		console.log('escondeu loading');
 	}
-
+	
+	/*
 	function FecharApp(){
 		navigator.app.exitApp();
 	}
+	
+	document.addEventListener("backbutton", function () { 
+         navigator.notification.confirm(
+             'Deseja Sair?', 
+             onConfirmQuit, 
+             'QUIT TITLE', 
+             'Sim,Nao'  
+         );
+     }, true); 
+
+
+    function onConfirmQuit(button){
+        if(button == "1"){
+            navigator.app.exitApp(); 
+        }
+    }
+	*/
+	
+	document.addEventListener('deviceready', function(e,d){
+		//alert('PG Ready');
+		$('#btnExit').click(function() {
+			console.log('chamou fechar App');
+			navigator.app.exitApp();
+			return true;
+		});
+	}, false);
+	/*	
+	$(document).ready(function() {
+		alert('JQ Ready');
+	});
+	*/
