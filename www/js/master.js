@@ -318,6 +318,7 @@
 		//fail(function(jqXHR, textStatus, errorThrown) { alert('getJSON request failed! ' + textStatus); console.log(textStatus+'/'+jqXHR+'-'+errorThrown); HideLoading(); })			
 		}).fail(function(jqXHR, textStatus, errorThrown) { 
 			//alert('Falhou ao acessar NetStudent!'); 
+			$.mobile.changePage($("#error"),'pop');
 			var aux = '<center>Falha de Conexao! Verifique sua Internet!</center>';
 			$('#errorContent').html(aux).trigger('create');
 			console.log(textStatus+'/'+jqXHR+'-'+errorThrown); 
