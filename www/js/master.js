@@ -321,4 +321,8 @@
 		$.mobile.loading( "hide", {			  
 		});
 		console.log('escondeu loading');
-	}		
+	}
+
+	function FecharApp(){
+		navigator.app.exitApp();
+	}
