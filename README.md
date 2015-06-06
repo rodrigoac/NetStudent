@@ -11,4 +11,9 @@ abrir a página de web deste sistema.
 somente um JSON é retornado.
 
 Projeto será apresentado no DeepDay, evento que ocorrerá na FACIMP (Faculdade de Imperatriz) 
-nos dias xx, xx de Junho de 2015.
+no dia 13 de Junho de 2015.
+
+Nesta versão foi utilizado:
+JQM 1.4.5
+jQuery 1.10.2
+PhoneGap
